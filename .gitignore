@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+. . .
+name: aws-load-balancer-controller
+namespace: kube-system
+spec:
+    . . .
+    template:
+        spec:
+            containers:
+                - args:
+                    - --cluster-name=<your-cluster-name> ## update this to demo-eks
