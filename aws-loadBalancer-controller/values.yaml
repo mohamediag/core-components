@@ -1,0 +1,3 @@
+clusterName: "ex-eks-mng-al2023"
+
+replicaCount: 1
