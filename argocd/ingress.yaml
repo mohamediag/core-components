@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: argocd
+  namespace: argocd
+spec:
+  tls:
+  - hosts:
+    - k8s-ingressn-ingressn-24877c6ba1-7dd4a5a73b449129.elb.eu-west-3.amazonaws.com
+    secretName: argocd-secret
+  ingressClassName: nginx
+  rules:
+  - host: k8s-ingressn-ingressn-24877c6ba1-7dd4a5a73b449129.elb.eu-west-3.amazonaws.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: argocd-server
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+
